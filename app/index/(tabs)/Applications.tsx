@@ -61,16 +61,17 @@ const Applications = () => {
         <View style={{ flex: 1, }}>
             <View style={{ width: width, alignItems: "center", marginTop: 20 }}>
                 <TextInput
-                    style={[styles.SeacrhBox, { width: width - 20 }, colorScheme == "dark" ? { borderColor: "white" } : { borderColor: "grey" }]}
+                    style={[styles.SeacrhBox, colorScheme == "dark" ? { backgroundColor: "black", color: 'white' } : { backgroundColor: "white", color: 'black' }, { width: width - 20 }, colorScheme == "dark" ? { borderColor: "white" } : { borderColor: "grey" }]}
                     placeholder="Search..."
                     value={searchtext}
+                    placeholderTextColor={colorScheme == "dark" ? "white" : "black"}
                     onChangeText={(text) => HandleSearch(text)}
                 />
 
             </View>
             {
                 loading &&
-                <Text style={{ textAlign: "center", fontWeight: "bold", marginTop: 5 }}>Loading...</Text>
+                <Text style={[{ textAlign: "center", fontWeight: "bold", marginTop: 5 }, colorScheme == "dark" ? { color: "white" } : { color: "black" }]}>Loading...</Text>
             }
             {
                 loading &&
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 12,
         fontSize: 16,
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
     },
     container: {
         flex: 1,
